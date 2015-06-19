@@ -1,0 +1,32 @@
+{
+  "name": "hashmap-jdk",
+  "author": "Francis Desjardins <me@francisdesjardins.ca>",
+  "version": "0.0.1",
+  "description": "HashMap JavaScript class inspired by JDK 8 HashMap class",
+  "keywords": ["hashmap", "map", "object", "array", "associative", "javascript", "nodejs", "node", "browser"],
+  "license": "MIT",
+  "homepage": "https://github.com/francisdesjardins/hashmap",
+  "bugs": "https://github.com/francisdesjardins/hashmap/issues",
+  "repository": "git://github.com/francisdesjardins/hashmap",
+  "main": "./index.js",
+  "scripts": {
+    "build": "npm run build-js & npm run build-js-min",
+    "test": "npm run test-js",
+    "watch": "npm run watch-js",
+    "build-js": "browserify index.js --s HashMap | uglifyjs -b > dist/hashmap.js",
+    "build-js-min": "browserify index.js --s HashMap | uglifyjs -mc > dist/hashmap.min.js",
+    "test-js": "mocha test/*.js",
+    "watch-js": "watchify index.js -d --s HashMap -o dist/hashmap.js -dv"
+  },
+  "engines": { "node": "*" },
+  "dependencies": {
+    "xtend": "latest"
+  },
+  "devDependencies": {
+    "uglify-js": "latest",
+    "browserify": "latest",
+    "watchify": "latest",
+    "mocha": "latest",
+    "chai": "latest"
+  }
+}
