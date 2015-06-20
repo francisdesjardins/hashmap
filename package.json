@@ -20,13 +20,13 @@
   },
   "engines": { "node": "*" },
   "dependencies": {
-    "xtend": "4.0.*"
+    "xtend": "4.0.0"
   },
   "devDependencies": {
-    "uglify-js": "2.4.*",
-    "browserify": "10.2.*",
-    "watchify": "3.2.*",
-    "mocha": "2.2.*",
-    "chai": "3.0.*"
+    "uglify-js": "2.4.23",
+    "browserify": "10.2.4",
+    "watchify": "3.2.2",
+    "mocha": "2.2.5",
+    "chai": "3.0.0"
   }
 }
