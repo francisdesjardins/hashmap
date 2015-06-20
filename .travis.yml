@@ -7,5 +7,3 @@ node_js:
   - "0.6"
   - "iojs"
   - "iojs-v1.0.4"
-before_install:
-  - npm install -g npm@~2.11.2
