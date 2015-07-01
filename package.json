@@ -32,8 +32,6 @@
     "node": "*"
   },
   "dependencies": {
-    "private-parts": "latest",
-    "weakmap": "latest",
     "xtend": "latest"
   },
   "devDependencies": {
