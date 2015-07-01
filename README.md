@@ -1,5 +1,8 @@
-HashMap - JavaScript class inspired by JDK 8
-============================================
+# HashMap
+
+## JavaScript class inspired by JDK 8
+
+[![Build Status](https://travis-ci.org/francisdesjardins/hashmap.svg?branch=master)](https://travis-ci.org/francisdesjardins/hashmap)
 
 This is a work-in-progress
 
