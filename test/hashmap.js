@@ -9,6 +9,74 @@ describe('HashMap', function () {
         hashMap = new HashMap();
     });
 
+    describe('HashMap.clone()', function () {
+        function checkTrue(arr, arr2) {
+            expect(arr).to.deep.equal(arr2);
+        }
+
+        it('should have same keys than its clone', function () {
+            hashMap.put(1, 2);
+            hashMap.put(3, 4);
+            hashMap.put(5, 6);
+
+            var clone = hashMap.clone(),
+                originalIterator = hashMap.keys(),
+                originalKeys = [],
+                cloneIterator = clone.keys(),
+                cloneKeys = [];
+
+            while (originalIterator.hasNext()) {
+                originalKeys.push(originalIterator.next());
+            }
+
+            while (cloneIterator.hasNext()) {
+                cloneKeys.push(cloneIterator.next());
+            }
+
+            checkTrue(originalKeys, cloneKeys);
+        });
+
+        it('should have same values than its clone', function () {
+            hashMap.put(1, 2);
+            hashMap.put(3, 4);
+            hashMap.put(5, 6);
+
+            var clone = hashMap.clone(),
+                originalIterator = hashMap.values(),
+                originalValues = [],
+                cloneIterator = clone.values(),
+                cloneValues = [];
+
+            while (originalIterator.hasNext()) {
+                originalValues.push(originalIterator.next());
+            }
+
+            while (cloneIterator.hasNext()) {
+                cloneValues.push(cloneIterator.next());
+            }
+
+            checkTrue(originalValues, cloneValues);
+        });
+    });
+
+    describe('HashMap.compute()', function () {
+        it('should compute a mapping for the specified key and its current mapped value', function () {
+            var key = 1,
+                value = 'Hello';
+
+            hashMap.put(key, value);
+
+            hashMap.compute(1, function (k, v) {
+                expect(k).to.equal(key);
+                expect(v).to.equal(value);
+
+                return v + 'World';
+            });
+
+            expect(hashMap.get(key)).to.equal('HelloWorld');
+        });
+    });
+
     describe('HashMap.equals()', function () {
         function checkTrue(hashMap1, hashMap2) {
             expect(hashMap1.equals(hashMap2)).to.be.true;
