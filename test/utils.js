@@ -1,7 +1,11 @@
 'use strict';
 
 var expect = require('chai').expect,
-    utils = require('../lib/utils');
+    utils = {};
+
+utils.hash = require('../lib/utils/hash');
+utils.is = require('../lib/utils/is');
+utils.type = require('../lib/utils/type');
 
 describe('utils', function () {
     describe('utils.hash()', function () {
@@ -84,9 +88,9 @@ describe('utils', function () {
         });
     });
 
-    describe('utils.typeOf()', function () {
+    describe('utils.type()', function () {
         function check(data, type) {
-            expect(utils.typeOf(data)).to.equal(type);
+            expect(utils.type(data)).to.equal(type);
         }
 
         it('should detect types accurately', function () {
