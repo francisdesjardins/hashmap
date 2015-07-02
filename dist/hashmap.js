@@ -6,6 +6,10 @@
  *
  * Key hashing, tests and 'did not knew that' highly inspired by
  * - HashMap by Ariel Flesler https://github.com/flesler/hashmap
+ *
+ * Implementation and Documentation highly inspired by OpenJDK
+ * - http://grepcode.com/file/repository.grepcode.com/java/root/jdk/openjdk/8u40-b25/java/util/HashMap.java#HashMap
+ * - http://grepcode.com/file/repository.grepcode.com/java/root/jdk/openjdk/8u40-b25/java/util/Map.java#Map
  */
 (function(f) {
     if (typeof exports === "object" && typeof module !== "undefined") {
