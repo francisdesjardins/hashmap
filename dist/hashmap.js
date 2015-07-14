@@ -267,13 +267,9 @@
                     return currentValue;
                 };
                 HashMap.prototype.remove = function(key) {
-                    var currentValue, hashCode = hash(key), map = this.privates(pk).map;
-                    if (hasOwnProperty.call(map, hashCode)) {
-                        currentValue = map[hashCode][1];
-                        delete map[hashCode];
-                        return currentValue;
-                    }
-                    return null;
+                    var currentValue = this.get(key), map = this.privates(pk).map;
+                    delete map[hash(key)];
+                    return currentValue;
                 };
                 HashMap.prototype.removeIfPresent = function(key, value) {
                     var currentValue = this.get(key);
@@ -328,13 +324,13 @@
             }).call(this, typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {});
         }, {
             "./hashmap/iterator/array": 4,
-            "./utils/hash": 6,
-            "./utils/is": 7,
-            "./utils/isNot": 8,
-            "./utils/requireDefined": 9,
-            "./utils/requireFunction": 10,
-            "./utils/requireInstanceOf": 11,
-            xtend: 13
+            "./utils/hash": 7,
+            "./utils/is": 8,
+            "./utils/isNot": 10,
+            "./utils/requireDefined": 11,
+            "./utils/requireFunction": 12,
+            "./utils/requireInstanceOf": 13,
+            xtend: 15
         } ],
         3: [ function(require, module, exports) {
             "use strict";
@@ -355,7 +351,7 @@
             };
             module.exports = Iterator;
         }, {
-            "../../utils/requireFunction": 10
+            "../../utils/requireFunction": 12
         } ],
         4: [ function(require, module, exports) {
             "use strict";
@@ -388,13 +384,14 @@
                 if (!this.hasNext()) {
                     throw new RangeError("the iteration has no more elements");
                 }
-                privates.current = privates.target[privates.currentIndex += 1];
+                privates.currentIndex += 1;
+                privates.current = privates.target[privates.currentIndex];
                 return privates.current;
             };
             module.exports = ArrayIterator;
         }, {
             "../../utils/create": 5,
-            "../../utils/requireInstanceOf": 11,
+            "../../utils/requireInstanceOf": 13,
             "../interface/iterator": 3
         } ],
         5: [ function(require, module, exports) {
@@ -428,8 +425,18 @@
         6: [ function(require, module, exports) {
             "use strict";
             var defineProperty = Object.defineProperty;
+            if (typeof defineProperty !== "function") {
+                defineProperty = function(obj, prop, descriptor) {
+                    obj[prop] = descriptor.value;
+                };
+            }
+            module.exports = defineProperty;
+        }, {} ],
+        7: [ function(require, module, exports) {
+            "use strict";
+            var defineProperty = require("./defineProperty");
             var hasOwnProperty = Object.prototype.hasOwnProperty;
-            var isExtensible = Object.isExtensible;
+            var isExtensible = require("./isExtensible");
             var typeOf = require("./type");
             var hash = function() {
                 var identity = 0, identityProperty = "__hash_201506172259__", immutableTypeTest = {
@@ -440,16 +447,6 @@
                     number: 1,
                     regexp: 1
                 };
-                if (!defineProperty) {
-                    defineProperty = function(obj, prop, descriptor) {
-                        obj[prop] = descriptor.value;
-                    };
-                }
-                if (!isExtensible) {
-                    isExtensible = function() {
-                        return true;
-                    };
-                }
                 function nextIdentity() {
                     identity += 1;
                     return identity;
@@ -496,9 +493,11 @@
             }();
             module.exports = hash;
         }, {
-            "./type": 12
+            "./defineProperty": 6,
+            "./isExtensible": 9,
+            "./type": 14
         } ],
-        7: [ function(require, module, exports) {
+        8: [ function(require, module, exports) {
             "use strict";
             module.exports = function(x, y) {
                 if (x === y) {
@@ -507,16 +506,26 @@
                 return x !== x;
             };
         }, {} ],
-        8: [ function(require, module, exports) {
+        9: [ function(require, module, exports) {
+            "use strict";
+            var isExtensible = Object.isExtensible;
+            if (typeof isExtensible !== "function") {
+                isExtensible = function() {
+                    return true;
+                };
+            }
+            module.exports = isExtensible;
+        }, {} ],
+        10: [ function(require, module, exports) {
             "use strict";
             var is = require("./is");
             module.exports = function(x, y) {
                 return !is(x, y);
             };
         }, {
-            "./is": 7
+            "./is": 8
         } ],
-        9: [ function(require, module, exports) {
+        11: [ function(require, module, exports) {
             "use strict";
             module.exports = function(o, m) {
                 if (o === undefined) {
@@ -524,7 +533,7 @@
                 }
             };
         }, {} ],
-        10: [ function(require, module, exports) {
+        12: [ function(require, module, exports) {
             "use strict";
             module.exports = function(o, m) {
                 if (typeof o !== "function") {
@@ -532,7 +541,7 @@
                 }
             };
         }, {} ],
-        11: [ function(require, module, exports) {
+        13: [ function(require, module, exports) {
             "use strict";
             module.exports = function(o, c, m) {
                 if (!(o instanceof c)) {
@@ -540,7 +549,7 @@
                 }
             };
         }, {} ],
-        12: [ function(require, module, exports) {
+        14: [ function(require, module, exports) {
             "use strict";
             var toString = Object.prototype.toString;
             var typeRegEx = /\[object ([a-z]*)\]/gi;
@@ -552,7 +561,7 @@
                 return type;
             };
         }, {} ],
-        13: [ function(require, module, exports) {
+        15: [ function(require, module, exports) {
             module.exports = extend;
             function extend() {
                 var target = {};
