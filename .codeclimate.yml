@@ -1,12 +1,9 @@
-languages:
-  Ruby: false
-  JavasScript: true
-  Python: false
-  PHP: false
 engines:
   rubocop:
     enabled: false
-  coffeelint:
+  golint:
+    enabled: false
+  gofmt:
     enabled: false
   eslint:
     enabled: true
