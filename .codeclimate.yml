@@ -12,8 +12,8 @@ engines:
     enabled: false
 ratings:
   paths:
-  - "lib/**/*.js"
+  - "**.js"
 exclude_paths:
-- node_modules/**/*
-- test/**/*
-- dist/**/*
+- "node_modules/**"
+- "test/**"
+- "dist/**"
