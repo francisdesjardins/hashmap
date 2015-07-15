@@ -17,3 +17,6 @@ exclude_paths:
 - "node_modules/**"
 - "test/**"
 - "dist/**"
+- "LICENSE"
+- "README.md"
+- "package.json"
