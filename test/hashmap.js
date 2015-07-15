@@ -221,7 +221,7 @@ test('HashMap.entries()', function (t) {
 
     t.throws(function () {
         entries.next();
-    }, /the iteration has no more elements/, 'throws exception when next() fails');
+    }, 'the iteration has no more elements', 'throws exception when next() fails');
 
     t.end();
 });
@@ -426,7 +426,7 @@ test('HashMap.keys()', function (t) {
 
     t.throws(function () {
         keys.next();
-    }, /the iteration has no more elements/, 'throws exception when next() fails');
+    }, 'the iteration has no more elements', 'throws exception when next() fails');
 
     t.end();
 });
@@ -451,13 +451,13 @@ test('HashMap.merge()', function (t) {
 
     t.throws(function () {
         hashMap.merge(2, 'b');
-    }, /"remappingFunction" is not a function/, 'throws exception when "remappingFunction" is NOT a function');
+    }, '"remappingFunction" is not a function', 'throws exception when "remappingFunction" is NOT a function');
 
     t.throws(function () {
         hashMap.merge(2, 'b', function () {
             return undefined;
         });
-    }, /"newValue" is undefined/, 'throws exception when remapping function returns undefined');
+    }, '"newValue" is undefined', 'throws exception when remapping function returns undefined');
 
     hashMap.merge(2, 'b', function () {
         return null;
@@ -657,7 +657,7 @@ test('HashMap.values()', function (t) {
 
     t.throws(function () {
         values.next();
-    }, /the iteration has no more elements/, 'throws exception when next() fails');
+    }, 'the iteration has no more elements', 'throws exception when next() fails');
 
     t.end();
 });
