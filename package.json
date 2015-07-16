@@ -21,6 +21,7 @@
   "main": "./index.js",
   "scripts": {
     "build": "npm run build-js & npm run build-js-min",
+    "cover": "istanbul cover test/hashmap.js && istanbul-coveralls",
     "test": "npm run test-js",
     "watch": "npm run watch-js",
     "build-js": "browserify index.js --s HashMap | uglifyjs -b > dist/hashmap.js",
@@ -36,6 +37,8 @@
   },
   "devDependencies": {
     "browserify": "latest",
+    "istanbul": "latest",
+    "istanbul-coveralls": "latest",
     "tape": "latest",
     "uglify-js": "latest",
     "watchify": "latest"
