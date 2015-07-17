@@ -26,7 +26,7 @@
     "watch": "npm run watch-js",
     "build-js": "browserify index.js --s HashMap | uglifyjs -b > dist/hashmap.js",
     "build-js-min": "browserify index.js --s HashMap | uglifyjs -mc > dist/hashmap.min.js",
-    "test-js": "tape test/**/*.js",
+    "test-js": "tape test/hashmap.js test/utils/*.js",
     "watch-js": "watchify index.js -d --s HashMap -o dist/hashmap.js -dv"
   },
   "engines": {
