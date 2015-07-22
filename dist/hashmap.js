@@ -72,15 +72,13 @@
                 var requireInstanceOf = require("./utils/requireInstanceOf");
                 var hash = require("./utils/hash");
                 var hasOwnProperty = Object.prototype.hasOwnProperty;
-                var defaults = {
-                    cacheKeys: true
-                };
+                var defaultOptions = {};
                 var pk = {};
                 var previousHashMap = global.HashMap;
                 function HashMap(map, options) {
                     var privates = {
                         map: {},
-                        settings: extend({}, defaults, options)
+                        settings: extend({}, defaultOptions, options)
                     };
                     this.privates = function(key) {
                         if (key === pk) {
@@ -360,7 +358,7 @@
             var requireInstanceOf = require("../../utils/requireInstanceOf");
             var pk = {};
             var ArrayIterator = function(target) {
-                requireInstanceOf(target, Array, '"entries" must be an Array');
+                requireInstanceOf(target, Array, '"target" must be an Array');
                 var privates = {
                     current: null,
                     currentIndex: -1,
@@ -403,7 +401,7 @@
                     var hasOwn = Object.prototype.hasOwnProperty;
                     return function(O) {
                         if (typeof O != "object") {
-                            throw TypeError("Object prototype may only be an Object or null");
+                            throw new TypeError("Object prototype may only be an Object or null");
                         }
                         Temp.prototype = O;
                         var obj = new Temp();
@@ -557,6 +555,18 @@
                 var type = toString.apply(target).replace(typeRegEx, "$1").toLowerCase();
                 if (type === "number" && isNaN(target)) {
                     return "nan";
+                }
+                if (type === "object") {
+                    switch (target) {
+                      case null:
+                        return "null";
+
+                      case undefined:
+                        return "undefined";
+
+                      default:
+                        return type;
+                    }
                 }
                 return type;
             };
