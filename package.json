@@ -2,7 +2,7 @@
   "name": "hashmap-jdk",
   "author": "Francis Desjardins <me@francisdesjardins.ca>",
   "version": "0.0.1",
-  "description": "HashMap JavaScript class inspired by JDK 8 HashMap class",
+  "description": "HashMap JavaScript class inspired by JDK 8",
   "keywords": [
     "hashmap",
     "map",
@@ -12,7 +12,8 @@
     "javascript",
     "nodejs",
     "node",
-    "browser"
+    "browser",
+    "iojs"
   ],
   "license": "MIT",
   "homepage": "https://github.com/francisdesjardins/hashmap",
@@ -23,25 +24,22 @@
     "build": "npm run build-js & npm run build-js-min",
     "cover": "istanbul cover test/hashmap.js && istanbul-coveralls",
     "test": "npm run test-js",
-    "watch": "npm run watch-js",
     "build-js": "browserify index.js --s HashMap | uglifyjs -b > dist/hashmap.js",
     "build-js-min": "browserify index.js --s HashMap | uglifyjs -mc > dist/hashmap.min.js",
-    "test-js": "tape test/hashmap.js test/utils/*.js",
-    "watch-js": "watchify index.js -d --s HashMap -o dist/hashmap.js -dv"
+    "test-js": "tape test/hashmap.js test/utils/*.js"
   },
   "engines": {
-    "node": "*"
+    "node": ">=0.10"
   },
   "dependencies": {
-    "xtend": "latest"
+    "xtend": "^4.0.0"
   },
   "devDependencies": {
-    "browserify": "latest",
-    "istanbul": "latest",
-    "istanbul-coveralls": "latest",
-    "tape": "latest",
-    "uglify-js": "latest",
-    "watchify": "latest"
+    "browserify": "^11.0.0",
+    "istanbul": "^0.3.17",
+    "istanbul-coveralls": "^1.0.3",
+    "tape": "^4.0.1",
+    "uglify-js": "^2.4.24"
   },
   "testling": {
     "files": "test/**/*.js",
