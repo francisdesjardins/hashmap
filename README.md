@@ -1,15 +1,16 @@
 # HashMap
-    
+
 ## JavaScript class inspired by JDK 8
 
 [![Build Status](https://travis-ci.org/francisdesjardins/hashmap.svg?branch=master)](https://travis-ci.org/francisdesjardins/hashmap)
 [![Code Climate](https://codeclimate.com/github/francisdesjardins/hashmap/badges/gpa.svg)](https://codeclimate.com/github/francisdesjardins/hashmap)
 [![Coverage Status](https://coveralls.io/repos/francisdesjardins/hashmap/badge.svg?branch=master&service=github)](https://coveralls.io/github/francisdesjardins/hashmap?branch=master)
 
-This is a work-in-progress (well, it is mostly complete).
+[![NPM](https://nodei.co/npm/hashmap-jdk.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/hashmap-jdk/)
 
-Installation
-----------
+This is a work-in-progress (well, more like mostly complete).
+
+### Installation
 
 Using npm:
 
@@ -23,12 +24,10 @@ To run the tests:
 
     $ npm test
 
-Motivation
-----------
+### Motivation
 
 Sometimes you need more than a simple HashMap
 
-Alternatives?
-----------
+### Never use a shotgun when a flyswatter will do
 
-If you need a simple HashMap that gets the job done, I invite you to head over [HashMap](https://github.com/flesler/hashmap) by [Ariel Flesler](https://github.com/flesler), the hashing portion of my code is inspired by his work.
+If you need a simple HashMap that gets the job done, I invite you to head over [HashMap](https://github.com/flesler/hashmap) by [Ariel Flesler](https://github.com/flesler), the key hashing portion of my code is inspired by his work.
