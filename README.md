@@ -1,12 +1,12 @@
-# HashMap
-
-## JavaScript class inspired by JDK 8
+# HashMap JavaScript Class Inspired by JDK 8
 
 [![Build Status](https://travis-ci.org/francisdesjardins/hashmap.svg?branch=master)](https://travis-ci.org/francisdesjardins/hashmap)
 [![Code Climate](https://codeclimate.com/github/francisdesjardins/hashmap/badges/gpa.svg)](https://codeclimate.com/github/francisdesjardins/hashmap)
 [![Coverage Status](https://coveralls.io/repos/francisdesjardins/hashmap/badge.svg?branch=master&service=github)](https://coveralls.io/github/francisdesjardins/hashmap?branch=master)
 
 [![NPM](https://nodei.co/npm/hashmap-jdk.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/hashmap-jdk/)
+
+### Heads-up
 
 This is a work-in-progress (well, more like mostly complete).
 
