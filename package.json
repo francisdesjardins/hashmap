@@ -1,7 +1,7 @@
 {
   "name": "hashmap-jdk",
   "author": "Francis Desjardins <me@francisdesjardins.ca>",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "HashMap JavaScript class inspired by JDK 8",
   "keywords": [
     "hashmap",
