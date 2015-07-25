@@ -1,7 +1,7 @@
 /**
  * HashMap - HashMap JavaScript class inspired by JDK 8 HashMap class
  * @author Francis Desjardins <me@francisdesjardins.ca>
- * @version 0.0.1
+ * @version 0.0.2
  * Homepage: https://github.com/francisdesjardins/hashmap
  *
  * Key hashing, tests and 'did not knew that' highly inspired by
@@ -550,7 +550,7 @@
         14: [ function(require, module, exports) {
             "use strict";
             var toString = Object.prototype.toString;
-            var typeRegEx = /\[object ([a-z]*)\]/gi;
+            var typeRegEx = /\[object (\S*)\]/gi;
             module.exports = function(target) {
                 var type = toString.apply(target).replace(typeRegEx, "$1").toLowerCase();
                 if (type === "number" && isNaN(target)) {
